@@ -489,6 +489,96 @@ tracking-[-0.04em] text-[#111111]">
     {/* CARDS */}
     <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_.18fr_1fr] lg:items-center">
       
+      {/* RIGHT CARD */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#2A120D] p-10 shadow-[0_30px_100px_rgba(0,0,0,.25)] md:p-14"
+      >
+        <div className="absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[#B92A08]/20 blur-[90px]" />
+
+        <div className="relative z-10">
+          <div className="mb-10 flex items-center gap-4">
+            <div className="grid h-16 w-16 place-items-center rounded-full bg-[#B92A08] text-white shadow-xl">
+              <X size={34} />
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
+                Generic Alternative
+              </p>
+
+              <h3 className="font-[family:var(--font-cormorant)] text-4xl font-semibold leading-none tracking-[-0.03em] text-white">
+                Ordinary Spices
+              </h3>
+            </div>
+          </div>
+
+          <p className="mb-10 max-w-xl text-[17px] leading-8 text-white/55">
+            Often produced without consistency, freshness control
+            or dependable quality standards for modern kitchens.
+          </p>
+
+          <div className="space-y-5">
+            {[
+              "High heat grinding methods",
+              "Inconsistent ingredient sourcing",
+              "Basic low-retention packaging",
+              "Weak aroma and dull flavour",
+              "Possible adulteration risks",
+              "Outdated processing standards",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4"
+              >
+                <div className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#B92A08] text-white">
+                  <X size={16} />
+                </div>
+
+                <p className="text-[17px] font-medium leading-8 text-white/82">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* CENTER SEAL */}
+<div className="relative hidden items-center justify-center lg:flex">
+
+  <motion.div
+  animate={{
+    rotate: 360,
+  }}
+  transition={{
+    duration: 14,
+    repeat: Infinity,
+    ease: "linear",
+  }}
+  className="relative z-10 grid h-28 w-28 place-items-center rounded-full border border-[#F8D18A]/30 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,.35)]"
+>
+  <div className="text-center">
+    <p className="text-xs uppercase tracking-[0.35em] text-[#F8D18A]/60">
+      Taste
+    </p>
+
+    <h4 className="mt-1 font-[family:var(--font-cormorant)] text-4xl font-semibold text-[#F8D18A]">
+      VS
+    </h4>
+  </div>
+</motion.div>
+
+  {/* GLOW */}
+  <div className="absolute h-[120px] w-[120px] rounded-full bg-[radial-gradient(circle,rgba(248,209,138,0.18),transparent_70%)] blur-2xl" />
+
+  
+</div>
+
+      
       {/* LEFT CARD */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -540,95 +630,6 @@ tracking-[-0.04em] text-[#111111]">
                 </div>
 
                 <p className="text-[17px] font-medium leading-8 text-[#21140E]">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* CENTER SEAL */}
-<div className="relative hidden items-center justify-center lg:flex">
-
-  <motion.div
-  animate={{
-    rotate: 360,
-  }}
-  transition={{
-    duration: 14,
-    repeat: Infinity,
-    ease: "linear",
-  }}
-  className="relative z-10 grid h-28 w-28 place-items-center rounded-full border border-[#F8D18A]/30 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,.35)]"
->
-  <div className="text-center">
-    <p className="text-xs uppercase tracking-[0.35em] text-[#F8D18A]/60">
-      Taste
-    </p>
-
-    <h4 className="mt-1 font-[family:var(--font-cormorant)] text-4xl font-semibold text-[#F8D18A]">
-      VS
-    </h4>
-  </div>
-</motion.div>
-
-  {/* GLOW */}
-  <div className="absolute h-[120px] w-[120px] rounded-full bg-[radial-gradient(circle,rgba(248,209,138,0.18),transparent_70%)] blur-2xl" />
-
-  
-</div>
-
-      {/* RIGHT CARD */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.15 }}
-        className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#2A120D] p-10 shadow-[0_30px_100px_rgba(0,0,0,.25)] md:p-14"
-      >
-        <div className="absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[#B92A08]/20 blur-[90px]" />
-
-        <div className="relative z-10">
-          <div className="mb-10 flex items-center gap-4">
-            <div className="grid h-16 w-16 place-items-center rounded-full bg-[#B92A08] text-white shadow-xl">
-              <X size={34} />
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
-                Generic Alternative
-              </p>
-
-              <h3 className="font-[family:var(--font-cormorant)] text-4xl font-semibold leading-none tracking-[-0.03em] text-white">
-                Ordinary Spices
-              </h3>
-            </div>
-          </div>
-
-          <p className="mb-10 max-w-xl text-[17px] leading-8 text-white/55">
-            Often produced without consistency, freshness control
-            or dependable quality standards for modern kitchens.
-          </p>
-
-          <div className="space-y-5">
-            {[
-              "High heat grinding methods",
-              "Inconsistent ingredient sourcing",
-              "Basic low-retention packaging",
-              "Weak aroma and dull flavour",
-              "Possible adulteration risks",
-              "Outdated processing standards",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-4"
-              >
-                <div className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#B92A08] text-white">
-                  <X size={16} />
-                </div>
-
-                <p className="text-[17px] font-medium leading-8 text-white/82">
                   {item}
                 </p>
               </div>
