@@ -16,25 +16,30 @@ import {
   Globe2,
   Camera,
   Mail,
+  Check,
+X,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
 const heroSlides = [
   {
-    image: "/hero4.png",
+    image: "/hero1.jpg",
+    title: "What enters your kitchen, should deserve your trust.",
+    text: "Thoughtfully crafted spices designed for households that care deeply about quality, consistency, and everyday cooking.",
+    bottom: "COMING SOON",
   },
   {
-    image: "/hero2.png",
+    image: "/heroo.jpg",
+    title: "Made for kitchens that cook with care.",
+    text: "Pure ingredients, rich aroma, and dependable quality for everyday Indian meals.",
+    bottom: "CRAFTED WITH CARE",
   },
   {
-    image: "hero.png",
-  },
-  {
-    image: "hero5.png",
-  },
-  {
-    image: "hero6.png",
+    image: "/hero.jpg",
+    title: "The taste that brings everyone back to the table.",
+    text: "Authentic flavour made for daily meals, festive recipes, and family moments.",
+    bottom: "AUTHENTIC TASTE",
   },
 ];
 
@@ -90,53 +95,112 @@ export default function Page() {
   return (
     <main className="overflow-hidden bg-[#F8F0E3] text-[#21140E]">
       {/* NAV */}
-      <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#21140E]/35 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-          <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-full bg-[#8F2D16] text-white shadow-xl">
-              <ChefHat size={24} />
-            </div>
-            <div>
-              <h1 className="text-xl font-black tracking-tight">Dr. Kitchen</h1>
-              <p className="text-xs font-semibold text-white/55">
-                A Brand by Surani Global Private Limited
-              </p>
-            </div>
-          </div>
+<nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#080503]/70 backdrop-blur-2xl">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-white">
+    
+    {/* CREATIVE STYLE LOGO */}
+<a href="#" className="leading-none">
+  <h1
+    className="
+      font-[family:var(--font-dmserif)]
+      text-[40px]
+      leading-[0.88]
+      tracking-[-0.045em]
+      text-white
+    "
+    style={{
+      fontWeight: 400,
+    }}
+  >
+    Dr. Kitchen
+  </h1>
 
-          <div className="hidden items-center gap-8 text-sm font-bold text-white/70 md:flex">
-            <a href="#story">Story</a>
-            <a href="#products">Products</a>
-            <a href="#quality">Quality</a>
-            <a href="#vision">Vision</a>
-          </div>
+  <p
+    className="
+      mt-2
+      pl-[2px]
+      font-[family:var(--font-poppins)]
+      text-[16px]
+      font-medium
+      tracking-[-0.03em]
+      text-white
+    "
+  >
+    Crafted for kitchens that care
+  </p>
+</a>
 
-          <button className="rounded-full bg-white px-5 py-3 text-sm font-black text-[#21140E]">
-            Contact Team
-          </button>
-        </div>
-      </nav>
+    {/* MENU */}
+    <div className="hidden items-center gap-10 text-sm font-semibold text-white/70 md:flex">
+      <a className="transition hover:text-[#F8D18A]" href="#story">
+        Story
+      </a>
+      <a className="transition hover:text-[#F8D18A]" href="#process">
+        Why Dr. Kitchen
+      </a>
+      <a className="transition hover:text-[#F8D18A]" href="#quality">
+        Quality
+      </a>
+      <a className="transition hover:text-[#F8D18A]" href="#vision">
+        Vision
+      </a>
+    </div>
 
-      {/* HERO IMAGE SLIDER */}
-<section className="relative min-h-screen overflow-hidden bg-[#120905] pt-[92px]">
+    {/* CTA */}
+    <button className="rounded-full border border-[#F8D18A]/40 bg-[#F8D18A] px-6 py-3 text-sm font-black text-[#120905] shadow-[0_12px_40px_rgba(248,209,138,.2)] transition hover:bg-white">
+      Coming Soon
+    </button>
+  </div>
+</nav>
+
+      {/* HERO */}
+<section className="relative min-h-screen overflow-hidden bg-[#080503] pt-[104px] text-white">
   <AnimatePresence mode="wait">
     <motion.img
       key={activeSlide}
       src={heroSlides[activeSlide].image}
       alt="Dr Kitchen hero"
-      initial={{ opacity: 0, scale: 1.04 }}
+      initial={{ opacity: 0, scale: 1.06 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 1, scale: 1.02 }}
-      transition={{ duration: 2, ease: "easeOut" }}
-      className="h-[calc(100vh-92px)] w-full object-fill"
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.1, ease: "easeOut" }}
+      className="absolute inset-0 h-full w-full object-cover"
     />
   </AnimatePresence>
 
+  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-black/10" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+
+  <div className="relative z-10 mx-auto flex min-h-[calc(100vh-104px)] max-w-7xl flex-col justify-between px-6 py-16">
+    
+
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={`content-${activeSlide}`}
+        initial={{ opacity: 0, y: 35 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-4xl"
+      >
+        <h2 className="font-[family:var(--font-dmserif)] text-5xl leading-[0.95] tracking-[-0.04em] text-white md:text-7xl">
+          {heroSlides[activeSlide].title}
+        </h2>
+
+        <p className="mt-6 max-w-3xl font-[family:var(--font-poppins)] text-xl leading-9 text-white/86">
+          {heroSlides[activeSlide].text}
+        </p>
+
+        <p className="mt-12 font-[family:var(--font-poppins)] text-5xl font-black tracking-[-0.05em] text-[#F8D18A]/85">
+          {heroSlides[activeSlide].bottom}
+        </p>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+
+  {/* CONTROLS */}
   <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-4">
-    <button
-      onClick={prevSlide}
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl"
-    >
+    <button onClick={prevSlide} className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl">
       <ChevronLeft size={20} />
     </button>
 
@@ -152,17 +216,14 @@ export default function Page() {
       ))}
     </div>
 
-    <button
-      onClick={nextSlide}
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl"
-    >
+    <button onClick={nextSlide} className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-xl">
       <ChevronRight size={20} />
     </button>
   </div>
 </section>
 
 {/* CATCH STYLE TRUST SECTION */}
-<section className="relative overflow-hidden bg-white px-6 py-28">
+<section id="vision" className="relative overflow-hidden bg-white px-6 py-28">
   {/* LEFT SPICE IMAGE */}
   <img
     src="/turmeric.webp"
@@ -178,7 +239,11 @@ export default function Page() {
   />
 
   <div className="relative z-10 mx-auto max-w-7xl">
-    <h2 className="mx-auto max-w-6xl text-center text-5xl font-light leading-[1.1] tracking-[-0.04em] text-[#ED1C24] md:text-6xl">
+    <h2 className="mx-auto max-w-6xl text-center leading-[1.1] text-[#ED1C24] md:text-6xl font-[family:var(--font-cormorant)]
+      text-3xl
+      font-semibold
+      leading-[0.95]
+      tracking-[-0.04em]">
       Discover the world of Exotic and Authentic Spices from Dr. Kitchen —
       <span className="block">
         Kyunki Khana Sirf Khana Nahi Hota
@@ -215,7 +280,11 @@ export default function Page() {
             <item.icon size={70} strokeWidth={1.8} />
           </div>
 
-          <h3 className="text-2xl font-semibold text-[#111111]">
+          <h3 className="font-[family:var(--font-cormorant)]
+text-6xl
+font-semibold
+leading-[0.95]
+tracking-[-0.04em] text-[#111111]">
             {item.title}
           </h3>
 
@@ -386,101 +455,185 @@ export default function Page() {
       
       
 
-      {/* DR KITCHEN VS ORDINARY SPICES */}
-<section className="relative overflow-hidden bg-[#F37021] px-6 py-28">
-  <div className="absolute inset-0 opacity-20">
-    <div className="absolute left-1/2 top-1/2 text-[420px] font-black leading-none text-white/20 -translate-x-1/2 -translate-y-1/2">
-      VS
-    </div>
-  </div>
+      {/* PREMIUM VS SECTION */}
+<section id="process" className="relative overflow-hidden bg-[#120905] px-6 py-20 text-white">
+  
+  {/* CINEMATIC GLOW */}
+  <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F8D18A]/10 blur-[180px]" />
+
+  {/* FILM GRAIN */}
+  <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-soft-light">
+  <div className="h-full w-full bg-[url('/grain.jpg')]" />
+</div>
 
   <div className="relative z-10 mx-auto max-w-7xl">
-    <div className="mb-14 text-center">
-      <p className="mb-4 text-sm font-black uppercase tracking-[0.3em] text-white/80">
+    
+    {/* TOP */}
+    <div className="mx-auto max-w-5xl text-center">
+      <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-[#F8D18A]">
         The Dr. Kitchen Difference
       </p>
-      <h2 className="text-5xl font-black leading-[0.95] tracking-[-0.05em] text-white md:text-7xl">
-        Fresh spices vs ordinary spices.
+
+      <h2 className="font-[family:var(--font-cormorant)] text-6xl font-semibold leading-[0.92] tracking-[-0.05em] text-white md:text-8xl">
+        Fresh spices
+        <span className="mx-4 text-[#F8D18A]">vs</span>
+        ordinary spices.
       </h2>
+
+      <p className="mx-auto mt-6 max-w-3xl text-[17px] leading-8 text-white/65">
+        The difference is not just visible — it is felt in aroma,
+        colour, purity and every bite shared around the table.
+      </p>
     </div>
 
-    <div className="grid gap-10 lg:grid-cols-[1fr_.3fr_1fr] lg:items-center">
-      {/* DR KITCHEN */}
+    {/* CARDS */}
+    <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_.18fr_1fr] lg:items-center">
+      
+      {/* LEFT CARD */}
       <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="relative rounded-[36px] border-4 border-white/25 bg-[#FFE0D2] p-8 shadow-[0_30px_100px_rgba(0,0,0,.18)] md:p-12"
+        transition={{ duration: 0.8 }}
+        className="relative overflow-hidden rounded-[40px] border border-[#F8D18A]/20 bg-[#F7F2EA] p-10 shadow-[0_30px_100px_rgba(0,0,0,.25)] md:p-14"
       >
-        <div className="absolute -top-10 left-1/2 grid h-20 w-20 -translate-x-1/2 place-items-center rounded-full bg-[#16A34A] text-white shadow-2xl">
-          <BadgeCheck size={42} />
-        </div>
+        {/* GLOW */}
+        <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-[#F8D18A]/20 blur-[90px]" />
 
-        <h3 className="mb-10 mt-6 text-center text-4xl font-black text-[#21140E]">
-          Dr. Kitchen Fresh Spices
-        </h3>
-
-        <div className="space-y-5">
-          {[
-            "Cool grinding technology",
-            "Sourced from selected farms",
-            "4-layer zip lock packaging",
-            "Maximum aroma, maximum taste",
-            "100% pure, no adulteration",
-            "Clean and hygienic processing",
-          ].map((item) => (
-            <div
-              key={item}
-              className="flex items-start gap-4 text-lg font-black text-[#E84A12]"
-            >
-              <span className="mt-1 text-[#E84A12]">❤</span>
-              <span>{item}</span>
+        <div className="relative z-10">
+          <div className="mb-10 flex items-center gap-4">
+            <div className="grid h-16 w-16 place-items-center rounded-full bg-[#16A34A] text-white shadow-xl">
+              <BadgeCheck size={34} />
             </div>
-          ))}
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8F2D16]/60">
+                Premium Choice
+              </p>
+
+              <h3 className="font-[family:var(--font-cormorant)] text-4xl font-semibold leading-none tracking-[-0.03em] text-[#21140E]">
+                Dr. Kitchen
+              </h3>
+            </div>
+          </div>
+
+          <p className="mb-10 max-w-xl text-[17px] leading-8 text-black/60">
+            Crafted for modern Indian kitchens that value purity,
+            freshness, authentic flavour and dependable quality.
+          </p>
+
+          <div className="space-y-5">
+            {[
+              "Low temperature grinding technology",
+              "Carefully sourced premium ingredients",
+              "Freshness-lock packaging systems",
+              "Rich aroma and authentic flavour",
+              "No adulteration or compromise",
+              "Modern hygienic processing standards",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4"
+              >
+                <div className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#16A34A] text-white">
+                  <Check size={16} />
+                </div>
+
+                <p className="text-[17px] font-medium leading-8 text-[#21140E]">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
 
-      {/* CENTER VS */}
-      <div className="hidden text-center lg:block">
-        <div className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-white/35 bg-white/15 text-4xl font-black text-white backdrop-blur-xl">
-          VS
-        </div>
-      </div>
+      {/* CENTER SEAL */}
+<div className="relative hidden items-center justify-center lg:flex">
 
-      {/* ORDINARY */}
+  <motion.div
+  animate={{
+    rotate: 360,
+  }}
+  transition={{
+    duration: 14,
+    repeat: Infinity,
+    ease: "linear",
+  }}
+  className="relative z-10 grid h-28 w-28 place-items-center rounded-full border border-[#F8D18A]/30 bg-white/[0.03] backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,.35)]"
+>
+  <div className="text-center">
+    <p className="text-xs uppercase tracking-[0.35em] text-[#F8D18A]/60">
+      Taste
+    </p>
+
+    <h4 className="mt-1 font-[family:var(--font-cormorant)] text-4xl font-semibold text-[#F8D18A]">
+      VS
+    </h4>
+  </div>
+</motion.div>
+
+  {/* GLOW */}
+  <div className="absolute h-[120px] w-[120px] rounded-full bg-[radial-gradient(circle,rgba(248,209,138,0.18),transparent_70%)] blur-2xl" />
+
+  
+</div>
+
+      {/* RIGHT CARD */}
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="relative rounded-[36px] border-4 border-white/15 bg-[#B92A08] p-8 shadow-[0_30px_100px_rgba(0,0,0,.18)] md:p-12"
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#2A120D] p-10 shadow-[0_30px_100px_rgba(0,0,0,.25)] md:p-14"
       >
-        <div className="absolute -top-10 left-1/2 grid h-20 w-20 -translate-x-1/2 place-items-center rounded-full bg-[#DC2626] text-white shadow-2xl">
-          <span className="text-4xl">👎</span>
-        </div>
+        <div className="absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[#B92A08]/20 blur-[90px]" />
 
-        <h3 className="mb-10 mt-6 text-center text-4xl font-black text-white">
-          Ordinary Spices
-        </h3>
-
-        <div className="space-y-5">
-          {[
-            "High heat grinding",
-            "Random sourcing, low consistency",
-            "Basic, generic packaging",
-            "Less aroma, dull taste",
-            "May contain adulterants",
-            "Unhygienic manual processing",
-          ].map((item) => (
-            <div
-              key={item}
-              className="flex items-start gap-4 text-lg font-semibold text-white/90"
-            >
-              <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-white" />
-              <span>{item}</span>
+        <div className="relative z-10">
+          <div className="mb-10 flex items-center gap-4">
+            <div className="grid h-16 w-16 place-items-center rounded-full bg-[#B92A08] text-white shadow-xl">
+              <X size={34} />
             </div>
-          ))}
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
+                Generic Alternative
+              </p>
+
+              <h3 className="font-[family:var(--font-cormorant)] text-4xl font-semibold leading-none tracking-[-0.03em] text-white">
+                Ordinary Spices
+              </h3>
+            </div>
+          </div>
+
+          <p className="mb-10 max-w-xl text-[17px] leading-8 text-white/55">
+            Often produced without consistency, freshness control
+            or dependable quality standards for modern kitchens.
+          </p>
+
+          <div className="space-y-5">
+            {[
+              "High heat grinding methods",
+              "Inconsistent ingredient sourcing",
+              "Basic low-retention packaging",
+              "Weak aroma and dull flavour",
+              "Possible adulteration risks",
+              "Outdated processing standards",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4"
+              >
+                <div className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#B92A08] text-white">
+                  <X size={16} />
+                </div>
+
+                <p className="text-[17px] font-medium leading-8 text-white/82">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
@@ -488,7 +641,7 @@ export default function Page() {
 </section>
 
       {/* BEHIND THE FLAVOUR - ZOFF STYLE */}
-<section className="relative overflow-hidden bg-white px-6 py-24">
+<section id="quality" className="relative overflow-hidden bg-white px-6 py-24">
   <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
     
     {/* LEFT PERSON IMAGE */}
@@ -604,6 +757,50 @@ export default function Page() {
             </button>
           </div>
         </div>
+
+        {/* SITE CREDITS */}
+<div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
+
+  <p className="text-sm text-black/50">
+    © 2026 Dr. Kitchen. Crafted for modern Indian kitchens.
+  </p>
+
+  {/* CREDITS */}
+  <div className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-xl">
+
+    
+
+    <div className="h-3 w-px bg-white/10" />
+
+    <a
+      href="https://fabulousmedia.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="opacity-70 transition hover:opacity-100"
+    >
+      <img
+        src="/fabulous-logo.png"
+        alt="Fabulous Media"
+        className="h-3 w-auto object-contain"
+      />
+    </a>
+
+    <div className="h-3 w-px bg-white/10" />
+
+    <a
+      href="https://gocommercially.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="opacity-70 transition hover:opacity-100"
+    >
+      <img
+        src="/gocommercially-logo.png"
+        alt="Go Commercially"
+        className="h-3 w-auto object-contain"
+      />
+    </a>
+  </div>
+</div>
       </footer>
     </main>
   );
